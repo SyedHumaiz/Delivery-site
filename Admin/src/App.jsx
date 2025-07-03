@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
 
-  const baseUrl = "http://localhost:4000"
+  const baseUrl =  import.meta.env.VITE_BASE_URL;
 
   return (
     <>
@@ -25,7 +25,7 @@ const App = () => {
             <Routes>
               <Route path='/add' element={<Add baseUrl={baseUrl}/>}></Route>
               <Route path='/list' element={<List baseUrl={baseUrl} />}></Route>
-              <Route path='/order' element={<Order />}></Route>
+              <Route path='/order' element={<Order baseUrl={baseUrl} />}></Route>
             </Routes>
 
           </div>

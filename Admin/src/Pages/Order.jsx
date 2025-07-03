@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const AllOrders = () => {
+const AllOrders = ({ baseUrl }) => {
   const [orders, setOrders] = useState([]);
-  const url = import.meta.env.VITE_BASE_URL;
 
 
 
@@ -19,7 +18,7 @@ const AllOrders = () => {
 
   const updateStatus = async (orderId, newStatus) => {
     try {
-      await axios.post(`${url}/api/order/update`, { orderId, status: newStatus });
+      await axios.post(`${baseUrl}/api/order/update`, { orderId, status: newStatus });
       fetchOrders(); // Refresh orders after update
     } catch (err) {
       console.error("Status update error:", err);
