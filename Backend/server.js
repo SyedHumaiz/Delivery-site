@@ -16,7 +16,7 @@ const port = 4000;
 
 app.use(cors(
     {
-        origin : ["http://localhost:5173" ,"http://localhost:5174"],
+        origin : ["https://delivery-site-admin.vercel.app", "https://delivery-site.vercel.app"],
         methods :["POST", "GET", "PUT", "DELETE"],
         credentials : true
     }
