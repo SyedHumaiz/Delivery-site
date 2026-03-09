@@ -8,13 +8,13 @@ const AllOrders = ({ baseUrl }) => {
 
 
   const fetchOrders = async () => {
-    try {
-      const res = await axios.get(`${url}/api/order/list`);
-      setOrders(res.data.data);
-    } catch (err) {
-      console.error("Failed to fetch orders:", err);
-    }
-  };
+  try {
+    const res = await axios.get(`${baseUrl}/api/order/list`);
+    setOrders(res.data.data);
+  } catch (err) {
+    console.error("Failed to fetch orders:", err);
+  }
+};
 
   const updateStatus = async (orderId, newStatus) => {
     try {

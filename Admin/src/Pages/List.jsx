@@ -81,7 +81,7 @@ const List = ({ baseUrl }) => {
         (list.map((item) => {
           return (
             <div key={item._id} className='grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 border text-sm px-2 py-1'>
-              <img src={`${baseUrl}/images/${item.image}`} alt="" />
+              <img src={item.image} alt="" />
               <b>{item.name}</b>
               <b>{item.category}</b>
               <b>{item.price}</b>

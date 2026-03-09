@@ -9,7 +9,7 @@ const FoodItem = ({id,name,price,description,image}) => {
   return (
     <div className='flex sm:flex-col md:w-[25vw] lg:w-[15vw] rounded-xl overflow-hidden mt-5 shadow-[0px_-4px_6px_rgba(0,0,0,0.1),0px_4px_6px_rgba(0,0,0,0.1)] cursor-pointer '>
         <div className='mb-5 relative w-full h-full md:h-[15vw]'>
-            <img className='w-full h-full object-cover hover:scale-110 transition ease-in-out ' src={url +"/images/"+image} alt="" />
+            <img className='w-full h-full object-cover hover:scale-110 transition ease-in-out ' src={image} alt="" />
             {
               !cartItem[id] ? <img className='absolute bottom-5 right-5 w-8 sm:w-11 border-r-[50%] cursor-pointer' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="" />
               : <div className='flex items-center right-5 bottom-5 absolute bg-white rounded-full gap-2 sm:px-2 sm:py-2 p-1'> 

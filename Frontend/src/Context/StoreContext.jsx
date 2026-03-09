@@ -121,9 +121,9 @@ const StoreContextProvider = (props) => {
 
     useEffect(() => {
 
+        getFoodData();
         if (localStorage.getItem("token")) {
             setToken(localStorage.getItem("token"))
-            getFoodData();
             loadCartData();
         }
     }, [])

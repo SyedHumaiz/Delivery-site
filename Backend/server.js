@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import 'dotenv/config'
+import "./config/cloudinary.js";
 import foodRouter from "./routes/FoodRoute.js";
 import userRouter from "./routes/UserRoute.js";
 import cartRouter from "./routes/CartRoute.js";
@@ -35,5 +36,5 @@ connectDB();
 app.get("/" , (req , res ) => {
     res.send("API WORKING")
 })
-app.listen(port , ()=> console.log('server started on port ' ,port))
+app.listen(port , ()=> console.log('server started on port ' ,port,process.env.CLOUD_NAME,process.env.API_KEY))
 
