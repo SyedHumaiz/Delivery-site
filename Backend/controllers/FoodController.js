@@ -4,17 +4,18 @@ import { v2 as cloudinary } from "cloudinary";
 // ADD FOOD
 const addFood = async (req, res) => {
   try {
-    // upload image to cloudinary
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: "food-delivery"
-    });
+    // Upload from memory buffer
+    const result = await cloudinary.uploader.upload(
+      `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`,
+      { folder: "food-delivery" }
+    );
 
     const food = new foodModel({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
       category: req.body.category,
-      image: result.secure_url // save image URL instead of filename
+      image: result.secure_url
     });
 
     await food.save();
@@ -26,7 +27,6 @@ const addFood = async (req, res) => {
     res.json({ success: false, message: "Error occurred while adding food" });
   }
 };
-
 
 // LIST FOOD
 const listFood = async (req, res) => {
